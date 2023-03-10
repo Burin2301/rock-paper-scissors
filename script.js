@@ -1,40 +1,59 @@
-//declaro las variables
 
-let player
-let computer 
+let player = parseInt(prompt("Choose 1 for Rock, 2 for Paper and 3 for Scissors"))
+let pc 
+let result
 
-//les doy valor
 
-//en esta funcion definire la eleccion del pc, esa formula es un standar, por lo que no hay problema
-//al usarla,
+function pcSelection(){
+   let number = Math.floor(Math.random() * (3) + 1 )
+    switch(number){
+        case 1:
+            return number = "Rock";   
+        case 2:
+            return number = "Paper"
+        case 3:
+            return number = "Scissors"
+    }
+} 
 
-function computerChoose(min, max){      
-    let number = Math.floor(Math.random() * (max - min + 1) + min )
-    return number
+
+function playerSelection(){
+    
+    switch(player){
+
+        case 1:
+            return player = "Rock";
+        case 2:
+            return player = "Paper"
+        case 3:
+            return player = "Scissors"
+        }
+        
 }
 
-player = parseInt(prompt("choose one, 1 for Rock, 2 for Paper and 3 for Scissors"))
+pc = pcSelection()
+player = playerSelection()
 
-computer = computerChoose(1, 3)
+function comparison(){
+    switch(pc+player){
+        case "PaperRock":
+        case "ScissorsPaper":
+        case "RockScissors":
+            return result = "The PC has Won!!!!"
+        case "RockPaper":
+        case "PaperScissors":
+        case "ScissorsRock":
+            return result = "You have Won!!!!"
+        case "ScissorsScissors":
+        case "PaperPaper":
+        case "RockRock":
+            return result = "It is a Draw!!!!"
 
-function comparison( player, computer ){
-    if( player == computer){
-        result = "Is a tie!"
     }
 }
+result = comparison()
 
-if( player == 1){
-    player = "Rock"
-} else if( player == 2 ){
-    player = "Paper"
-} else if( player == 3 ){
-    player = "Scissors"
-}
 
-if( computer == 1){
-    computer = "Rock"
-} else if( computer == 2 ){
-    computer = "Paper"
-} else if( computer == 3 ){
-    computer = "Scissors"
-}
+console.log(player)
+console.log(pc)
+console.log(result)
